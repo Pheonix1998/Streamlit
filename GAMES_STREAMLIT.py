@@ -17,7 +17,7 @@ This dashboard provides an interactive overview of game sales data.
 @st.cache_data
 def load_data():
     # USE YOUR ABSOLUTE PATH HERE
-    file_path = r"E:\Labmentix Internship\Game Sales\Project Files\GAME SALES DATA FINAL.csv"
+    file_path = "GAME SALES DATA FINAL.csv"
     
     if not os.path.exists(file_path):
         st.error(f"File not found at: {file_path}. Please check the path.")
@@ -203,4 +203,5 @@ with col_corr:
 
 # --- Raw Data View ---
 with st.expander("View Raw Data"):
+
     st.dataframe(df_filtered)
