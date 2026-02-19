@@ -8,7 +8,7 @@ st.set_page_config(page_title="Digital Music Store Dashboard", page_icon="🎵",
 # Function to load and clean data
 @st.cache_data
 def load_data():
-    df = pd.read_excel(r"E:\Labmentix Internship\Apple Music\FINAL JOINED DATA.xlsx")
+    df = pd.read_excel("MUSIC JOINED DATA.xlsx")
     
     # Convert dates to datetime objects
     df['formatted_invoice_date'] = pd.to_datetime(df['formatted_invoice_date'])
@@ -216,4 +216,5 @@ with col_new4:
 # --- DATA TABLE ---
 st.divider()
 st.subheader("📄 Raw Sales Data (Filtered)")
+
 st.dataframe(filtered_sales[['formatted_invoice_date', 'DayOfWeek', 'customer_name', 'billing_country', 'track_name', 'artist_name', 'genre_name', 'media_type_name', 'unit_price']].sort_values(by='formatted_invoice_date', ascending=False).head(100), use_container_width=True)
