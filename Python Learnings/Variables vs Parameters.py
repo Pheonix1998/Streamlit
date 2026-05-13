@@ -35,6 +35,41 @@ def clean_name(name):
     new_name = name.strip().title().replace("@", "")  # Local variable for storage
     if case_rule == "upper":  # Accessing global variable
         new_name = new_name.upper()
+    elif case_rule == "lower":
+        new_name = new_name.lower()
     print(f"Cleaned name: {new_name}")
     print(f"Original name: {name}")
 clean_name("   sImOn RiLey @   ")
+
+# Positional and keyword arguments
+def greet(name, greeting):
+    print(f"{greeting}, {name}!")
+greet("Alice", "Hello")  # Positional arguments
+greet(greeting="Hi", name="Bob")  # Keyword arguments
+
+case_rule = "upper"  # Global variable
+def clean_name(first_name, last_name, country):
+    if case_rule == "upper":  # Accessing global variable
+        first_name = first_name.title().strip().replace("@", "").upper()  # Local variable for storage
+        last_name = last_name.title().strip().replace("@", "").upper()  # Local
+    elif case_rule == "lower":
+        first_name = first_name.title().strip().replace("@", "").lower()  # Local
+        last_name = last_name.title().strip().replace("@", "").lower()  # Local
+    print(f"Cleaned name: {first_name} {last_name}")
+    print(f"Original name: {first_name} {last_name}")
+    print(f"Full name: {first_name} {last_name} from {country}")
+clean_name("   sImOn ", "RiLey @   ", "USA") # positional arguement
+clean_name(first_name="   sImOn ", last_name="RiLey @   ", country="USA") # keyword arguement
+
+# *args and **kwargs(keyword args)
+def summation (*args):
+    print(sum(args))
+    print(args)
+    print(type(args))
+summation(1,2,3)
+summation(1,2,3,4)
+
+def create_user_info(**kwargs):
+    print(kwargs)
+    print(type(kwargs))
+create_user_info(name="John", age=30, country="USA")
